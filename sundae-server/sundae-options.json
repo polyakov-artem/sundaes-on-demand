@@ -1,0 +1,56 @@
+{
+  "iceCreamFlavors": [
+    {
+      "name": "Mint chip",
+      "imagePath": "/images/mint-chip.png",
+      "price": 2
+    },
+    {
+      "name": "Vanilla",
+      "imagePath": "/images/vanilla.png",
+      "price": 2
+    },
+    {
+      "name": "Chocolate",
+      "imagePath": "/images/chocolate.png",
+      "price": 2
+    },
+    {
+      "name": "Salted caramel",
+      "imagePath": "/images/salted-caramel.png",
+      "price": 2
+    }
+  ],
+  "toppings": [
+    {
+      "name": "M&Ms",
+      "imagePath": "/images/m-and-ms.png",
+      "price": 0.5
+    },
+    {
+      "name": "Hot fudge",
+      "imagePath": "/images/hot-fudge.png",
+      "price": 0.5
+    },
+    {
+      "name": "Peanut butter cups",
+      "imagePath": "/images/peanut-butter-cups.png",
+      "price": 0.5
+    },
+    {
+      "name": "Gummi bears",
+      "imagePath": "/images/gummi-bears.png",
+      "price": 0.5
+    },
+    {
+      "name": "Mochi",
+      "imagePath": "/images/mochi.png",
+      "price": 0.5
+    },
+    {
+      "name": "Cherries",
+      "imagePath": "/images/cherries.png",
+      "price": 0.5
+    }
+  ]
+}
