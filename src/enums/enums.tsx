@@ -17,7 +17,7 @@ export enum LoadingStatus {
 }
 
 export enum OrderActionCategory {
-  changed = 'changed',
+  productsChanged = 'productsChanged',
   reset = 'reset',
-  booked = 'booked',
+  creationStateChanged = 'creationStateChanged',
 }
