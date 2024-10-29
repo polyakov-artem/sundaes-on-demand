@@ -1,4 +1,4 @@
-import { Products } from '../enums/enums';
+import { LoadingStatus, Products } from '../enums/enums';
 
 export interface ItemType {
   name: string;
@@ -14,3 +14,19 @@ export interface ProductsType {
 export interface CreatedOrderType {
   orderNumber: number;
 }
+
+export type IdleStateType = { status: LoadingStatus.idle; data: null; error: null };
+export type LoadingStateType = { status: LoadingStatus.loading; data: null; error: null };
+export type ErrorStateType = { status: LoadingStatus.error; data: null; error: string };
+
+export type SuccessStateType<DataType> = {
+  status: LoadingStatus.success;
+  data: DataType;
+  error: null;
+};
+
+export type LoaderStateType<DataType> =
+  | IdleStateType
+  | SuccessStateType<DataType>
+  | ErrorStateType
+  | LoadingStateType;
