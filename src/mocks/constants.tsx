@@ -10,3 +10,5 @@ export const toppings = [
 ];
 
 export const order = { orderNumber: 10 };
+
+export const products = { scoops, toppings };
