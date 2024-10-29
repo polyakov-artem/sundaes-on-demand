@@ -3,9 +3,9 @@ import { ErrorStateType, IdleStateType, LoadingStateType, SuccessStateType } fro
 import { LoadingStatus } from '../enums/enums';
 import { getErrorMessage } from './getErrorMessage';
 
-export type RequestFunctionType<DataType> = (
-  signal?: AbortSignal
-) => Promise<AxiosResponse<DataType>> | Promise<{ data: DataType }>;
+export type RequestFunctionType<DataType> = () =>
+  | Promise<AxiosResponse<DataType>>
+  | Promise<{ data: DataType }>;
 
 export function getIdleState(): IdleStateType {
   return { status: LoadingStatus.idle, data: null, error: null };
@@ -28,13 +28,12 @@ export function getErrorState(error: string): ErrorStateType {
 }
 
 export async function loadData<DataType>(
-  requestFunction: RequestFunctionType<DataType>,
-  signal?: AbortSignal
-): Promise<SuccessStateType<DataType> | ErrorStateType | IdleStateType> {
+  requestFunction: RequestFunctionType<DataType>
+): Promise<SuccessStateType<DataType> | ErrorStateType> {
   let resultState;
 
   try {
-    const response = await requestFunction(signal);
+    const response = await requestFunction();
     resultState = getSuccessState(response.data);
   } catch (error) {
     resultState = getErrorState(getErrorMessage(error));
