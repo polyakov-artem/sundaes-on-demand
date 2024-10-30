@@ -3,20 +3,19 @@ import userEvent from '@testing-library/user-event';
 import { describe, expect, test } from 'vitest';
 import { getOrderInitialState } from '../orderReducer';
 import OrderProvider, { OrderContextValueType } from '../orderProvider';
-import { OrderConsumer } from '../../testComponents/orderConsumer';
+import { OrderConsumer } from '../../testHelpers/components/orderConsumer';
+
+import { addNetworkError, addNetworkInfiniteDelay } from '../../testHelpers/utils/mswUtils';
 import {
   orderStateCreatingFailed,
+  orderStateCreatingOrder,
   orderStateCreatingSuccess,
   orderStateWithMaxScoops,
-} from '../../mocks/constants';
-import {
-  orderStateCreatingOrder,
   orderStateWithProducts,
   orderStateWithScoops,
   orderStateWithToppings,
-} from '../../mocks/constants';
-import { addNetworkError, addNetworkInfiniteDelay } from '../../test-utils/testUtils';
-import { server } from '../../mocks/server';
+} from '../../testHelpers/constants/orderProviderConstants';
+import { server } from '../../testHelpers/http/mswServer';
 
 describe('OrderProvider', () => {
   describe('in initial state', () => {

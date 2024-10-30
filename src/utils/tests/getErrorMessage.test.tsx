@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { DEFAULT_ERROR_MESSAGE, getErrorMessage, NETWORK_ERROR_MESSAGE } from '../getErrorMessage';
-import { addNetworkError } from '../../test-utils/testUtils';
-import { server } from '../../mocks/server';
+import { addNetworkError } from '../../testHelpers/utils/mswUtils';
 import axios from 'axios';
+import { server } from '../../testHelpers/http/mswServer';
 
 describe('getErrorMessage', () => {
   describe('when error is an instance of Error', () => {

@@ -1,9 +1,8 @@
 import { describe, expect, test } from 'vitest';
 import productsService from '../productsService';
-import { scoops, toppings } from '../../mocks/constants';
-
-import { server } from '../../mocks/server';
-import { addNetworkError } from '../../test-utils/testUtils';
+import { addNetworkError } from '../../testHelpers/utils/mswUtils';
+import { scoops, toppings } from '../../testHelpers/constants/productsProviderConstants';
+import { server } from '../../testHelpers/http/mswServer';
 
 describe('productsService', () => {
   describe('productsService.getScoops method is called', () => {

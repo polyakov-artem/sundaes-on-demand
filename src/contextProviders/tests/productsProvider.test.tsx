@@ -1,14 +1,12 @@
 import { describe, expect, test } from 'vitest';
 import ProductsProvider from '../productsProvider';
 import { render, screen, waitFor } from '@testing-library/react';
-import { server } from '../../mocks/server';
-
-import { products } from '../../mocks/constants';
-
 import { useProductsContext } from '../../hooks/useProductsContext';
 import { NETWORK_ERROR_MESSAGE } from '../../utils/getErrorMessage';
-import { addNetworkError, addNetworkInfiniteDelay } from '../../test-utils/testUtils';
-import { ContextConsumer } from '../../testComponents/contextConsumer';
+import { addNetworkError, addNetworkInfiniteDelay } from '../../testHelpers/utils/mswUtils';
+import { ContextConsumer } from '../../testHelpers/components/contextConsumer';
+import { server } from '../../testHelpers/http/mswServer';
+import { products } from '../../testHelpers/constants/productsProviderConstants';
 
 describe('ProductsProvider', () => {
   describe('with data loading, with a child component', () => {

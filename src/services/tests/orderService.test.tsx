@@ -1,15 +1,14 @@
 import { describe, expect, test } from 'vitest';
 import orderService from '../orderService';
-import { order } from '../../mocks/constants';
-
-import { server } from '../../mocks/server';
-import { addNetworkError } from '../../test-utils/testUtils';
+import { addNetworkError } from '../../testHelpers/utils/mswUtils';
+import { createdOrder } from '../../testHelpers/constants/orderProviderConstants';
+import { server } from '../../testHelpers/http/mswServer';
 
 describe('orderService', () => {
   describe('orderService.createOrder method is called', () => {
     test('should return order', async () => {
       const response = await orderService.createOrder();
-      expect(response.data).toEqual(order);
+      expect(response.data).toEqual(createdOrder);
     });
 
     test('should return an error when request is rejected', async () => {
