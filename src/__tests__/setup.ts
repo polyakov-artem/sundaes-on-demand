@@ -5,7 +5,7 @@
 import '@testing-library/jest-dom';
 import { afterAll, afterEach, beforeAll } from 'vitest';
 import { cleanup } from '@testing-library/react';
-import { server } from '../mocks/server';
+import { server } from '../testHelpers/http/mswServer';
 
 // runs a clean after each test case (e.g. clearing jsdom)
 afterEach(() => {

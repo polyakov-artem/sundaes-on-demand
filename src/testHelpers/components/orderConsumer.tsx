@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { useOrderContext } from '../hooks/useOrderContext';
-import { useOrderDispatchContext } from '../hooks/useOrderDispatchContext';
-import { changeOrderProducts, createOrder, resetOrder } from '../contextProviders/orderReducer';
-import { scoops, toppings } from '../mocks/constants';
-import { Products } from '../enums/enums';
+import { useOrderContext } from '../../hooks/useOrderContext';
+import { useOrderDispatchContext } from '../../hooks/useOrderDispatchContext';
+import { changeOrderProducts, createOrder, resetOrder } from '../../contextProviders/orderReducer';
+import { Products } from '../../enums/enums';
+import { scoops, toppings } from '../constants/productsProviderConstants';
 
 export const OrderConsumer: FC = () => {
   const state = useOrderContext();

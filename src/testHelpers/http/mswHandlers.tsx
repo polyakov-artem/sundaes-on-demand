@@ -1,5 +1,6 @@
 import { http, HttpResponse } from 'msw';
-import { order, scoops, toppings } from './constants';
+import { scoops, toppings } from '../constants/productsProviderConstants';
+import { createdOrder } from '../constants/orderProviderConstants';
 
 export const handlers = [
   http.get('http://localhost:3030/scoops', async () => {
@@ -11,6 +12,6 @@ export const handlers = [
   }),
 
   http.post('http://localhost:3030/order', async () => {
-    return HttpResponse.json(order, { status: 201 });
+    return HttpResponse.json(createdOrder, { status: 201 });
   }),
 ];
