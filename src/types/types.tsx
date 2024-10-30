@@ -30,3 +30,13 @@ export type LoaderStateType<DataType> =
   | SuccessStateType<DataType>
   | ErrorStateType
   | LoadingStateType;
+
+export type handleProductChangeType = (productName: string, price: number, count: string) => void;
+
+export interface ProductOptionPropsType {
+  name: string;
+  price: number;
+  count: number;
+  imagePath: string;
+  onChange: handleProductChangeType;
+}
