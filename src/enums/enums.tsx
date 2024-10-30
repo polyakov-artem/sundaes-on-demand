@@ -21,3 +21,9 @@ export enum OrderActionCategory {
   reset = 'reset',
   creationStateChanged = 'creationStateChanged',
 }
+
+export enum OrderPhase {
+  inProgress = 'inProgress',
+  review = 'review',
+  completed = 'completed',
+}
