@@ -4,11 +4,14 @@ import App from './App.tsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import ProductsProvider from './contextProviders/productsProvider.tsx';
+import OrderProvider from './contextProviders/orderProvider.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ProductsProvider>
-      <App />
+      <OrderProvider>
+        <App />
+      </OrderProvider>
     </ProductsProvider>
   </StrictMode>
 );
