@@ -4,8 +4,12 @@ import { CreatedOrderType, LoaderStateType } from '../types/types';
 
 import { getOrderInitialState, OrderActionType, orderReducer } from './orderReducer';
 
+export type OrderProductsType = {
+  [key in Products]: Record<string, { count: number; price: number }>;
+};
+
 export type OrderContextValueType = {
-  products: { [key in Products]: Record<string, { count: number; price: number }> };
+  products: OrderProductsType;
   order: LoaderStateType<CreatedOrderType>;
 };
 

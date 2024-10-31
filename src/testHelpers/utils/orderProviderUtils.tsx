@@ -1,26 +1,51 @@
+import { OrderContextValueType, OrderProductsType } from '../../contextProviders/orderProvider';
 import { getOrderInitialState } from '../../contextProviders/orderReducer';
-import { CreatedOrderType, LoaderStateType } from '../../types/types';
+import { Products } from '../../enums/enums';
+
 import { scoops, toppings } from '../constants/productsProviderConstants';
 
 export const getOrderState = (
-  scoopsCount: number = 0,
-  toppingsCount: number = 0,
-  orderState?: LoaderStateType<CreatedOrderType>
+  scoopsCounts: number[] = [],
+  toppingCounts: number[] = [],
+  order?: OrderContextValueType['order']
 ) => {
-  const scoop = scoops[0];
-  const topping = toppings[0];
-
   let state = getOrderInitialState();
-  if (scoopsCount)
-    state.products.scoops = { [scoop.name]: { count: scoopsCount, price: scoop.price } };
 
-  if (toppingsCount)
-    state.products.toppings = {
-      [topping.name]: { count: toppingsCount, price: topping.price },
-    };
+  if (scoopsCounts.length) {
+    const currentScoops = scoops.slice(0, scoopsCounts.length);
 
-  if (orderState) {
-    state = { ...state, order: orderState };
+    const scoopsState = currentScoops.reduce(
+      (endState, item, i) => {
+        const count = scoopsCounts[i];
+        if (!count) return endState;
+        endState[item.name] = { count, price: item.price };
+        return endState;
+      },
+      {} as OrderProductsType[Products]
+    );
+
+    state.products.scoops = scoopsState;
   }
+
+  if (toppingCounts.length) {
+    const currentToppings = toppings.slice(0, scoopsCounts.length);
+
+    const toppingsState = currentToppings.reduce(
+      (endState, item, i) => {
+        const count = toppingCounts[i];
+        if (!count) return endState;
+        endState[item.name] = { count, price: item.price };
+        return endState;
+      },
+      {} as OrderProductsType[Products]
+    );
+
+    state.products.toppings = toppingsState;
+  }
+
+  if (order) {
+    state = { ...state, order: order };
+  }
+
   return state;
 };
