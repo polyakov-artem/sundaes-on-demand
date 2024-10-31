@@ -1,6 +1,6 @@
 import { Row } from 'react-bootstrap';
 import { Products } from '../../../enums/enums';
-import { handleProductChangeType, ItemType } from '../../../types/types';
+import { handleProductChangeType } from '../../../types/types';
 import { FC } from 'react';
 import { changeOrderProducts } from '../../../contextProviders/orderReducer';
 import { useOrderDispatchContext } from '../../../hooks/useOrderDispatchContext';
